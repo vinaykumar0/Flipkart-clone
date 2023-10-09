@@ -12,7 +12,12 @@ const defaultData = require('./default')
 const database = require('./config/database')
 database.connectDb()
 
-app.use(cors())
+app.use(
+	cors({
+		origin:"*",
+		credentials:true,
+	})
+)
 app.use(bodyParser.json({ extended: true }))
 app.use(bodyParser.urlencoded({ extended: true }))
 
